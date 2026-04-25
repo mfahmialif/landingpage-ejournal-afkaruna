@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Afkaruna - Academic Publishing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.7);
+        }
+        @keyframes navbarDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-navbar-down {
+            animation: navbarDown 0.4s ease-out forwards;
+        }
+        @keyframes fadeInNav {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-nav {
+            animation: fadeInNav 0.8s ease-out forwards;
+        }
+    
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee2 {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0%); }
+        }
+        @keyframes marqueeReverse {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0%); }
+        }
+        @keyframes marqueeReverse2 {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+        }
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee2 {
+            animation: marquee2 35s linear infinite;
+        }
+        .animate-marquee-reverse {
+            animation: marqueeReverse 30s linear infinite;
+        }
+        .animate-marquee-reverse2 {
+            animation: marqueeReverse2 30s linear infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#dce2f7",
+                        "on-tertiary-fixed-variant": "#73332f",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-primary": "#8bd6b6",
+                        "surface-tint": "#1b6b51",
+                        "primary": "#004532",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-fixed-variant": "#00513b",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-container": "#065f46",
+                        "secondary-container": "#d9dff5",
+                        "surface-container-low": "#f3f4f5",
+                        "on-surface-variant": "#3f4944",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#404758",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#bec9c2",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "secondary": "#575e70",
+                        "on-tertiary-container": "#ffb4ad",
+                        "primary-fixed": "#a6f2d1",
+                        "on-secondary-container": "#5c6274",
+                        "on-tertiary-fixed": "#3b0908",
+                        "background": "#f8f9fa",
+                        "tertiary": "#652925",
+                        "primary-fixed-dim": "#8bd6b6",
+                        "surface-container": "#edeeef",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed": "#141b2b",
+                        "outline": "#6f7973",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#823f3a",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-primary-fixed": "#002116",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#8bd6b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "base": "8px",
+                        "pill-padding-y": "12px",
+                        "section-padding": "80px",
+                        "container-max": "1200px",
+                        "pill-padding-x": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopNavBar -->
+<nav id="main-navbar" class="absolute top-6 left-0 right-0 mx-auto w-[95%] max-w-container-max z-50 flex items-center justify-between px-6 py-3 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl rounded-full border border-white/20 dark:border-slate-700/50 shadow-[0px_12px_32px_rgba(0,0,0,0.05)] font-['Inter'] tracking-tight antialiased animate-fade-in-nav">
+<div class="text-xl font-bold text-emerald-900 dark:text-emerald-50 text-primary hover:scale-105 transition-transform duration-300">
+            Afkaruna
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="nav-link border-b-2 border-transparent text-slate-600 dark:text-slate-300 font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300" href="#home">Home</a>
+<a class="nav-link border-b-2 border-transparent text-slate-600 dark:text-slate-300 font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300" href="#journal">Journal</a>
+<a class="nav-link border-b-2 border-transparent text-slate-600 dark:text-slate-300 font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300" href="#contribute">Contribute</a>
+<a class="nav-link border-b-2 border-transparent text-slate-600 dark:text-slate-300 font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300" href="#contact">Contact</a>
+</div>
+<div class="flex items-center space-x-2 md:space-x-4">
+    <button class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2 md:px-6 rounded-full hover:bg-surface-tint transition-colors scale-95 active:scale-90 hover:scale-100 transition-transform duration-300">
+        Sign In
+    </button>
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors focus:outline-none">
+        <span class="material-symbols-outlined text-on-surface">menu</span>
+    </button>
+</div>
+</nav>
+
+<!-- Mobile Menu Dropdown -->
+<div id="mobile-menu" class="fixed top-24 left-0 right-0 mx-auto w-[95%] max-w-container-max z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-[0px_12px_32px_rgba(0,0,0,0.1)] p-6 flex flex-col space-y-3 opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-top">
+    <a class="mobile-nav-link text-center py-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-sm text-slate-700 dark:text-slate-200 font-bold tracking-wide hover:bg-primary/10 hover:text-primary transition-colors flex items-center justify-center gap-2" href="#home"><span class="material-symbols-outlined text-[20px]">home</span> Home</a>
+    <a class="mobile-nav-link text-center py-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-sm text-slate-700 dark:text-slate-200 font-bold tracking-wide hover:bg-primary/10 hover:text-primary transition-colors flex items-center justify-center gap-2" href="#journal"><span class="material-symbols-outlined text-[20px]">auto_stories</span> Journal</a>
+    <a class="mobile-nav-link text-center py-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-sm text-slate-700 dark:text-slate-200 font-bold tracking-wide hover:bg-primary/10 hover:text-primary transition-colors flex items-center justify-center gap-2" href="#contribute"><span class="material-symbols-outlined text-[20px]">edit_document</span> Contribute</a>
+    <a class="mobile-nav-link text-center py-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-sm text-slate-700 dark:text-slate-200 font-bold tracking-wide hover:bg-primary/10 hover:text-primary transition-colors flex items-center justify-center gap-2" href="#contact"><span class="material-symbols-outlined text-[20px]">mail</span> Contact</a>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="pt-[160px] pb-section-padding px-6 flex flex-col items-center justify-center text-center max-w-container-max mx-auto relative overflow-hidden">
+<div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-fixed-dim/20 via-background to-background"></div>
+<span data-aos="fade-up" data-aos-delay="100" class="inline-flex items-center space-x-2 bg-surface-container-high px-4 py-1.5 rounded-full mb-8 font-label-sm text-label-sm text-on-surface-variant shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>Advancing Global Knowledge</span>
+</span>
+<h1 data-aos="zoom-in" data-aos-delay="200" class="font-display-lg text-display-lg text-on-background max-w-4xl mb-6 leading-tight">
+            Curated Excellence in Academic Publishing.
+        </h1>
+<p data-aos="fade-up" data-aos-delay="300" class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+            Afkaruna provides a platform for rigorous, peer-reviewed research across disciplines. We foster innovation and disseminate knowledge to a global academic community.
+        </p>
+<div data-aos="fade-up" data-aos-delay="400" class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-tint transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
+                Explore Journals
+            </button>
+<button class="bg-surface-container-lowest text-primary font-label-md text-label-md px-8 py-4 rounded-full border border-outline-variant hover:bg-surface-container-low transition-all shadow-sm hover:shadow-md hover:-translate-y-1 duration-300">
+                Submit Manuscript
+            </button>
+</div>
+<div data-aos="zoom-out-up" data-aos-delay="500" data-aos-duration="1000" class="mt-20 w-full max-w-3xl aspect-[21/9] rounded-2xl overflow-hidden shadow-[0px_24px_48px_rgba(0,0,0,0.15)] bg-surface-container-lowest flex items-center justify-center border border-outline-variant/30 group">
+<img alt="Academic Journals" class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000&auto=format&fit=crop"/>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-section-padding bg-surface-container px-6">
+<div class="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-center p-6 hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">High</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Data Security</p>
+</div>
+<div data-aos="fade-up" data-aos-delay="200" class="flex flex-col items-center p-6 hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">public</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">100%</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Open Access</p>
+</div>
+<div data-aos="fade-up" data-aos-delay="300" class="flex flex-col items-center p-6 hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">50k+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Global Readers</p>
+</div>
+<div data-aos="fade-up" data-aos-delay="400" class="flex flex-col items-center p-6 hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Peer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Reviewed Rigor</p>
+</div>
+</div>
+</section>
+<!-- Journal Index Section -->
+<section id="journal" class="py-section-padding px-6 max-w-container-max mx-auto" data-aos="fade-up">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div class="max-w-2xl mb-6 md:mb-0">
+<h2 class="font-display-lg text-display-lg text-on-background mb-4">Journal Index</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Discover our comprehensive collection of scholarly publications across various disciplines, indexed in reputable databases.</p>
+</div>
+<div class="relative w-full md:w-auto min-w-[300px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md shadow-sm journal-search-input" placeholder="Search journals, ISSN, or keywords..." type="text"/>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-3 mb-10">
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm">All</button>
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">Scopus</button>
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">Sinta 2</button>
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">Sinta 3</button>
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">Sinta 4</button>
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">Sinta 5</button>
+<button class="journal-filter-btn px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">OJS</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Card 1 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_afkaruna.png" alt="Afkaruna Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Scopus</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Afkaruna: Indonesian Interdisciplinary Journal of Islamic Studies</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">A peer-reviewed journal publishing original research articles, review articles, and book reviews in Islamic studies.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2085-3092</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_architecture.png" alt="Architecture Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 2</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Journal of Islamic Architecture</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Focuses on the interplay between Islamic values and architectural practices, covering historical and contemporary contexts.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2086-2636</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_religia.png" alt="Religia Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">OJS</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Religia</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Journal of Islamic studies publishing research on religious phenomena, theology, philosophy, and mysticism</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1411-1632</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_millah.png" alt="Millah Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 3</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Millah: Journal of Religious Studies</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Dedicated to the scholarly study of religions, interfaith dialogue, and comparative religion.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1412-0364</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_afkaruna.png" alt="Jurnal Tarbiyah Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 3</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Tarbiyah</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Focuses on education, teaching methods, and curriculum development in Islamic contexts.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2085-3093</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_religia.png" alt="Jurnal Syariah Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 2</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Syariah</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Publishes research on Islamic law, jurisprudence, and contemporary legal issues.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2086-2637</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_architecture.png" alt="Jurnal Ekonomi Syariah Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 4</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Ekonomi Syariah</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Explores Islamic economics, banking, finance, and halal industry development.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1411-1633</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_millah.png" alt="Jurnal Komunikasi Islam Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 3</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Komunikasi Islam</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Studies on Islamic communication, media, broadcasting, and da'wah strategies.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1412-0365</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 9 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_afkaruna.png" alt="Jurnal Psikologi Islam Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 5</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Psikologi Islam</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Research bridging psychology and Islamic teachings, focusing on mental health and human behavior.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2085-3094</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 10 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_architecture.png" alt="Jurnal Sejarah Islam Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 2</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Sejarah Islam</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Investigates Islamic history, civilization, cultural heritage, and historical figures.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2086-2638</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 11 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_religia.png" alt="Jurnal Filsafat Islam Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Scopus</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Filsafat Islam</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Philosophical inquiries into Islamic thought, epistemology, and comparative philosophy.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1411-1634</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 12 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_millah.png" alt="Jurnal Sosiologi Agama Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 3</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Sosiologi Agama</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Sociological perspectives on religion, community dynamics, and social change.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1412-0366</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 13 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_afkaruna.png" alt="Jurnal Politik Islam Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 4</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Politik Islam</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Analysis of political systems, governance, and public policy in the Islamic world.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2085-3095</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 14 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_architecture.png" alt="Jurnal Kesehatan Masyarakat Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 3</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Kesehatan Masyarakat</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Public health studies integrating scientific research with Islamic ethical principles.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2086-2639</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 15 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_religia.png" alt="Jurnal Teknologi Informasi Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 5</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Teknologi Informasi</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Advancements in IT, computer science, and their applications in Islamic institutions.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1411-1635</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 16 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_millah.png" alt="Jurnal PAUD Islam Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 4</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal PAUD Islam</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Early childhood education theories and practices from an Islamic perspective.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1412-0367</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 17 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_afkaruna.png" alt="Jurnal Manajemen Pendidikan Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 2</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Manajemen Pendidikan</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Educational administration, leadership, and management in Islamic schools.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2085-3096</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 18 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_architecture.png" alt="Jurnal Bimbingan Konseling Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 3</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Bimbingan Konseling</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Islamic counseling, guidance, and psychotherapy techniques and case studies.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 2086-2640</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 19 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_religia.png" alt="Jurnal Hukum Keluarga Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Sinta 4</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Hukum Keluarga</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Studies on Islamic family law, marriage, inheritance, and contemporary family issues.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1411-1636</span>
+            </div>
+        </div>
+    </div>
+    <!-- Card 20 -->
+    <div class="journal-card bg-surface-container-lowest rounded-2xl border border-outline-variant/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full group overflow-hidden">
+        <!-- Cover Image -->
+        <div class="relative w-full aspect-[3/4] bg-surface-container overflow-hidden">
+            <img src="stitch_assets/cover_millah.png" alt="Jurnal Studi Al-Qur'an Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute top-4 left-4">
+                <span class="journal-category px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold rounded-full text-xs shadow-sm">Scopus</span>
+            </div>
+            <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white text-primary px-6 py-2 rounded-full font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Read Journal</span>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors">Jurnal Studi Al-Qur'an</h3>
+            <p class="text-sm text-on-surface-variant mb-4 flex-grow line-clamp-3">Quranic exegesis (Tafsir), sciences of the Quran, and contemporary interpretations.</p>
+            <div class="pt-4 border-t border-surface-variant/50 flex justify-between items-center text-xs">
+                <span class="text-outline font-medium">ISSN: 1412-0368</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-12 text-center">
+</div>
+</section>
+
+<!-- Sponsors & Indexed By Section -->
+<section id="sponsors" class="py-12 bg-white relative overflow-hidden" data-aos="fade-up">
+    <!-- Gradient Overlays for smooth edge fading -->
+    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+    
+    <div class="max-w-container-max mx-auto px-6 mb-10 text-center relative z-20">
+        <h3 class="text-xs font-bold tracking-[0.2em] text-slate-400 uppercase mb-3">Indexed In & Supported By</h3>
+        <div class="h-1 w-16 bg-primary/20 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Marquee Row 1 (Indexers) -->
+    <div class="relative flex overflow-hidden group mb-8 py-2">
+        <div class="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused]">
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-primary transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-primary text-3xl">public</span> Sinta</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#f47f57] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#f47f57] text-3xl">auto_stories</span> DOAJ</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#4285f4] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#4285f4] text-3xl">school</span> Google Scholar</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#e42e2c] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#e42e2c] text-3xl">flight_takeoff</span> Garuda</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#7bb03b] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#7bb03b] text-3xl">menu_book</span> Moraref</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#008fce] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#008fce] text-3xl">category</span> Dimensions</div>
+        </div>
+        <div class="absolute top-2 flex animate-marquee2 whitespace-nowrap group-hover:[animation-play-state:paused]">
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-primary transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-primary text-3xl">public</span> Sinta</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#f47f57] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#f47f57] text-3xl">auto_stories</span> DOAJ</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#4285f4] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#4285f4] text-3xl">school</span> Google Scholar</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#e42e2c] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#e42e2c] text-3xl">flight_takeoff</span> Garuda</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#7bb03b] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#7bb03b] text-3xl">menu_book</span> Moraref</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#008fce] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4"><span class="material-symbols-outlined text-[#008fce] text-3xl">category</span> Dimensions</div>
+        </div>
+    </div>
+
+    <!-- Marquee Row 2 (Tools) -->
+    <div class="relative flex overflow-hidden group py-2">
+        <div class="flex animate-marquee-reverse whitespace-nowrap group-hover:[animation-play-state:paused]">
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#0070c0] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#0070c0] text-3xl">plagiarism</span> Turnitin</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#cc2936] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#cc2936] text-3xl">library_books</span> Zotero</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#9d1620] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#9d1620] text-3xl">hub</span> Mendeley</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#0070c0] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#0070c0] text-3xl">plagiarism</span> Turnitin</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#cc2936] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#cc2936] text-3xl">library_books</span> Zotero</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#9d1620] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#9d1620] text-3xl">hub</span> Mendeley</div>
+        </div>
+        <div class="absolute top-2 flex animate-marquee-reverse2 whitespace-nowrap group-hover:[animation-play-state:paused]">
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#0070c0] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#0070c0] text-3xl">plagiarism</span> Turnitin</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#cc2936] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#cc2936] text-3xl">library_books</span> Zotero</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#9d1620] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#9d1620] text-3xl">hub</span> Mendeley</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#0070c0] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#0070c0] text-3xl">plagiarism</span> Turnitin</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#cc2936] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#cc2936] text-3xl">library_books</span> Zotero</div>
+            <div class="px-8 py-4 bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 font-bold text-xl text-slate-400 hover:text-[#9d1620] transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center gap-3 grayscale hover:grayscale-0 mx-4 w-64 justify-center"><span class="material-symbols-outlined text-[#9d1620] text-3xl">hub</span> Mendeley</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contribute Section -->
+<section id="contribute" class="py-section-padding px-6" data-aos="zoom-in" data-aos-duration="1000">
+<div class="max-w-container-max mx-auto rounded-[2rem] bg-primary relative overflow-hidden">
+<!-- Grid Background Pattern -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="relative z-10 p-12 md:p-20 text-center flex flex-col items-center">
+<h2 class="font-display-lg text-display-lg text-on-primary mb-6">Contribute to the Discourse</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl mb-10">
+                    We invite scholars, researchers, and practitioners to submit their rigorous work. Join our mission to advance global knowledge through open-access, peer-reviewed publishing.
+                </p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-8 py-4 rounded-full border border-primary-fixed-dim/30 hover:bg-surface-tint transition-colors">
+                        Submit Now
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-section-padding px-6 relative" data-aos="fade-up">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent -z-10"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+    
+    <div class="max-w-container-max mx-auto">
+        <div class="bg-surface-container-lowest rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/20 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-5">
+                <!-- Left: Info (Takes 2 columns) -->
+                <div class="lg:col-span-2 bg-primary text-on-primary p-12 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+                    
+                    <div class="relative z-10">
+                        <h2 class="font-display-lg text-4xl font-bold mb-4">Get in Touch</h2>
+                        <p class="font-body-md text-primary-fixed-dim mb-12">
+                            Have questions about submissions, indexing, or institutional partnerships? We'd love to hear from you.
+                        </p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-5 group cursor-pointer">
+                                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-white">location_on</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Editorial Office</h4>
+                                    <p class="text-primary-fixed-dim text-sm leading-relaxed">Afkaruna Publishing House<br/>Jl. Kaliurang Km 14.5<br/>Sleman, Yogyakarta 55584, ID</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-5 group cursor-pointer">
+                                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-white">mail</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Email Us</h4>
+                                    <p class="text-primary-fixed-dim text-sm leading-relaxed">editor@afkaruna.id<br/>support@afkaruna.id</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-5 group cursor-pointer">
+                                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-white">call</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Call Us</h4>
+                                    <p class="text-primary-fixed-dim text-sm leading-relaxed">+62 274 898444<br/>Mon - Fri, 8am - 4pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative circles in corner -->
+                    <div class="absolute -bottom-16 -right-16 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-8 -right-8 w-24 h-24 bg-white/20 rounded-full"></div>
+                </div>
+                
+                <!-- Right: Form (Takes 3 columns) -->
+                <div class="lg:col-span-3 p-12 lg:p-16 bg-white">
+                    <form class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="relative">
+                                <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">First Name</label>
+                                <input class="w-full border-0 border-b-2 border-surface-variant bg-transparent px-0 py-2 text-on-surface focus:ring-0 focus:border-primary transition-colors" type="text" placeholder="John" />
+                            </div>
+                            <div class="relative">
+                                <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Last Name</label>
+                                <input class="w-full border-0 border-b-2 border-surface-variant bg-transparent px-0 py-2 text-on-surface focus:ring-0 focus:border-primary transition-colors" type="text" placeholder="Doe" />
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="relative">
+                                <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Email Address</label>
+                                <input class="w-full border-0 border-b-2 border-surface-variant bg-transparent px-0 py-2 text-on-surface focus:ring-0 focus:border-primary transition-colors" type="email" placeholder="john@example.com" />
+                            </div>
+                            <div class="relative">
+                                <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Subject</label>
+                                <select class="w-full border-0 border-b-2 border-surface-variant bg-transparent px-0 py-2 text-on-surface focus:ring-0 focus:border-primary transition-colors appearance-none">
+                                    <option>General Inquiry</option>
+                                    <option>Submission Question</option>
+                                    <option>Technical Support</option>
+                                    <option>Partnership</option>
+                                </select>
+                                <span class="material-symbols-outlined absolute right-0 bottom-2 text-on-surface-variant pointer-events-none">expand_more</span>
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Message</label>
+                            <textarea class="w-full border-0 border-b-2 border-surface-variant bg-transparent px-0 py-2 text-on-surface focus:ring-0 focus:border-primary transition-colors resize-none" rows="4" placeholder="Write your message here..."></textarea>
+                        </div>
+                        
+                        <div class="pt-4 flex justify-end">
+                            <button class="bg-primary text-on-primary font-semibold px-10 py-4 rounded-full hover:bg-surface-tint hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-2" type="button">
+                                Send Message
+                                <span class="material-symbols-outlined text-sm">send</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Filter Toolbox -->
+<div id="floating-filter" class="fixed right-6 bottom-6 z-[60] flex flex-col items-end transition-all duration-500 translate-y-32 opacity-0 pointer-events-none">
+    
+    <!-- Expanded Panel -->
+    <div id="filter-panel" class="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/40 dark:border-slate-700/50 p-6 mb-4 w-[320px] transform scale-90 opacity-0 origin-bottom-right transition-all duration-300 pointer-events-none">
+        <div class="flex justify-between items-center mb-4">
+            <h4 class="font-bold text-on-surface">Search & Filter</h4>
+            <button id="close-filter-btn" class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+        </div>
+        
+        <div class="relative w-full mb-6">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+            <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-outline-variant bg-surface-container text-sm text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none journal-search-input" placeholder="Search journals..." type="text"/>
+        </div>
+        
+        <div class="flex flex-wrap gap-2">
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-primary text-on-primary text-xs font-semibold shadow-sm focus:outline-none">All</button>
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-low text-xs font-semibold transition-colors focus:outline-none">Scopus</button>
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-low text-xs font-semibold transition-colors focus:outline-none">Sinta 2</button>
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-low text-xs font-semibold transition-colors focus:outline-none">Sinta 3</button>
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-low text-xs font-semibold transition-colors focus:outline-none">Sinta 4</button>
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-low text-xs font-semibold transition-colors focus:outline-none">Sinta 5</button>
+            <button class="journal-filter-btn px-4 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-low text-xs font-semibold transition-colors focus:outline-none">OJS</button>
+        </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button id="toggle-filter-btn" class="px-6 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none ring-offset-2 ring-primary hover:ring-2">
+        <span class="material-symbols-outlined" id="toggle-filter-icon">tune</span>
+        <span class="font-semibold text-sm tracking-wide" id="toggle-filter-text">Filter</span>
+    </button>
+</div>
+
+<!-- Footer Wrapper -->
+<div class="bg-[#eef1f2]">
+<footer class="w-full pt-24 pb-12 px-8 bg-slate-900 text-slate-300 font-['Inter'] text-sm leading-relaxed rounded-t-[3rem] relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+    <div class="max-w-container-max mx-auto relative z-10 flex flex-col items-center text-center mb-16">
+        <div class="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-3">
+            <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+            Afkaruna
+        </div>
+        <p class="max-w-2xl text-slate-400 mb-10 text-base leading-relaxed">
+            Advancing global knowledge through rigorous, peer-reviewed research. A trusted platform for academic excellence and innovation across diverse disciplines.
+        </p>
+        <div class="flex space-x-6 justify-center">
+            <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white hover:scale-110 transition-all duration-300 shadow-lg">
+                <span class="material-symbols-outlined text-base">share</span>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white hover:scale-110 transition-all duration-300 shadow-lg">
+                <span class="material-symbols-outlined text-base">language</span>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white hover:scale-110 transition-all duration-300 shadow-lg">
+                <span class="material-symbols-outlined text-base">mail</span>
+            </a>
+        </div>
+    </div>
+    <div class="max-w-container-max mx-auto relative z-10 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between">
+        <div class="text-slate-500 mb-4 md:mb-0">
+            © 2026 Afkaruna Publishing House. All rights reserved.
+        </div>
+        <div class="flex items-center space-x-2 text-slate-500">
+            <span>Powered by</span>
+            <span class="font-semibold text-slate-400">Afkaruna IT</span>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: false,
+        offset: 100
+    });
+
+    const navbar = document.getElementById('main-navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 150) {
+            navbar.classList.remove('absolute', 'top-6', 'animate-fade-in-nav');
+            navbar.classList.add('fixed', 'top-4', 'animate-navbar-down');
+        } else {
+            navbar.classList.add('absolute', 'top-6');
+            navbar.classList.remove('fixed', 'top-4', 'animate-navbar-down');
+        }
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateActiveLink() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= (sectionTop - 250)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('text-emerald-700', 'dark:text-emerald-400', 'font-semibold', 'border-emerald-600');
+            link.classList.add('text-slate-600', 'dark:text-slate-300', 'font-medium', 'border-transparent');
+            
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.remove('text-slate-600', 'dark:text-slate-300', 'font-medium', 'border-transparent');
+                link.classList.add('text-emerald-700', 'dark:text-emerald-400', 'font-semibold', 'border-emerald-600');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+
+    // Floating Filter Logic
+    const journalSection = document.getElementById('journal');
+    const floatingFilter = document.getElementById('floating-filter');
+    const filterPanel = document.getElementById('filter-panel');
+    const toggleFilterBtn = document.getElementById('toggle-filter-btn');
+    const closeFilterBtn = document.getElementById('close-filter-btn');
+    const toggleFilterIcon = document.getElementById('toggle-filter-icon');
+    const toggleFilterText = document.getElementById('toggle-filter-text');
+    let isFilterOpen = false;
+
+    window.addEventListener('scroll', () => {
+        const sectionTop = journalSection.offsetTop;
+        const sectionBottom = sectionTop + journalSection.clientHeight;
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // Show when scrolled past the top of the journal section (+300px offset)
+        // Hide when scrolled past the bottom of the section
+        if (scrollY > sectionTop + 300 && scrollY < sectionBottom - windowHeight / 2) {
+            floatingFilter.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+        } else {
+            floatingFilter.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+            if(isFilterOpen) togglePanel(); // Auto-close when hidden
+        }
+    });
+
+    function togglePanel() {
+        isFilterOpen = !isFilterOpen;
+        if(isFilterOpen) {
+            filterPanel.classList.remove('scale-90', 'opacity-0', 'pointer-events-none');
+            filterPanel.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
+            toggleFilterIcon.innerText = 'close';
+            toggleFilterText.innerText = 'Close';
+        } else {
+            filterPanel.classList.add('scale-90', 'opacity-0', 'pointer-events-none');
+            filterPanel.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+            toggleFilterIcon.innerText = 'tune';
+            toggleFilterText.innerText = 'Filter';
+        }
+    }
+
+    toggleFilterBtn.addEventListener('click', togglePanel);
+    closeFilterBtn.addEventListener('click', togglePanel);
+
+    // Journal Filter & Search Logic
+    const journalCards = document.querySelectorAll('.journal-card');
+    const filterBtns = document.querySelectorAll('.journal-filter-btn');
+    const searchInputs = document.querySelectorAll('.journal-search-input');
+    let activeFilter = 'All';
+    let searchQuery = '';
+
+    function applyJournalFilters() {
+        journalCards.forEach(card => {
+            const cardText = card.innerText.toLowerCase();
+            const categoryEl = card.querySelector('.journal-category');
+            const categoryText = categoryEl ? categoryEl.innerText.toLowerCase() : '';
+            const matchesSearch = searchQuery === '' || cardText.includes(searchQuery);
+            const matchesFilter = activeFilter === 'All' || categoryText.includes(activeFilter.toLowerCase());
+
+            if (matchesSearch && matchesFilter) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update active state of buttons
+        filterBtns.forEach(btn => {
+            const isMatch = btn.innerText.trim() === activeFilter;
+            if(isMatch) {
+                btn.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+                btn.classList.remove('bg-surface-container-lowest', 'bg-surface-container', 'text-on-surface', 'hover:bg-surface-container-low', 'border-outline-variant');
+            } else {
+                btn.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+                btn.classList.add('text-on-surface', 'hover:bg-surface-container-low', 'border-outline-variant'); 
+                if (btn.classList.contains('px-6')) {
+                    btn.classList.add('bg-surface-container-lowest');
+                } else {
+                    btn.classList.add('bg-surface-container');
+                }
+            }
+        });
+
+        // Refresh AOS trigger points since the document height may have changed significantly
+        setTimeout(() => {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }, 100);
+    }
+
+    // Bind Search Inputs
+    searchInputs.forEach(input => {
+        input.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            applyJournalFilters();
+            // Sync the other input
+            searchInputs.forEach(otherInput => {
+                if (otherInput !== input) otherInput.value = e.target.value;
+            });
+        });
+    });
+
+    // Bind Filter Buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeFilter = btn.innerText.trim();
+            applyJournalFilters();
+        });
+    });
+
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileMenu() {
+            const isOpen = mobileMenu.classList.contains('opacity-100');
+            if (isOpen) {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+                mobileMenuIcon.textContent = 'menu';
+                mobileMenuBtn.classList.remove('bg-primary/10', 'text-primary');
+            } else {
+                mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+                mobileMenuIcon.textContent = 'close';
+                mobileMenuBtn.classList.add('bg-primary/10', 'text-primary');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(mobileMenu.classList.contains('opacity-100')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+</script>
+</body></html>
